@@ -1,0 +1,57 @@
+import java.util.*;
+public class FFP
+{
+    public static int factorial(int a){
+        if(a==1 || a==0)  return 1;
+        else return a*factorial(a-1);
+    }
+    public static int fibonacci(int b){
+        int fib1=0;
+        int fib2=1;
+        int fib3=0;
+        for(int i=2;i<=b;i++){
+            fib1=fib2;
+            fib2=fib3;
+            fib3=fib1+fib2;
+        }
+        return fib3;
+    }
+    public static boolean palindrome(int c){
+        int temp=c;
+        int sum=0;
+        while(c>0){
+            int c1=c%10;
+            sum=(sum*10)+c1;
+            c=c/10;
+        }
+        if(temp==sum) return true;
+        else return false;
+    }
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("1.Factorial \n2.Fibonacci \n3.Palindrome");
+        int n=sc.nextInt();
+        switch(n){
+            case 1:
+                System.out.println("enter a number:");
+                int a=sc.nextInt();
+                int res=factorial(a);
+                System.out.println("Factorial of "+a+" is "+res);
+                break;
+            case 2:
+                System.out.println("enter a number:");
+                int b=sc.nextInt();
+                int re=fibonacci(b);
+                System.out.println(b+"th term in fibonacci series is "+re);
+                break;
+            case 3:
+                System.out.println("enter a number:");
+                int c=sc.nextInt();
+                boolean r=palindrome(c);
+                if(r==true) System.out.println(c+" is palindrome");
+                else System.out.println(c+" is not a palindrome");
+                break;
+                   
+     }
+    }  
+}
