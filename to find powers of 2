@@ -1,0 +1,17 @@
+#include<stdio.h>
+void power(int*, int);
+int main()
+{
+	int res, val;
+	scanf("%d", &val);
+	power(&res, val);
+	printf("%d", res);
+	return 0;
+}
+//implement the power function here
+void power(int* r,int b){
+    *r=1;
+    for(int i=1;i<=b;i++){
+        (*r)*=2;
+    }
+}
