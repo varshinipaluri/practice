@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+ 
+int compare(const void *a, const void *b) {
+    return (*(int*)a - *(int*)b);
+}
+
+int main() {
+    int n,result;
+    scanf("%d", &n);
+    
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    qsort(arr, n, sizeof(int), compare);
+    int max1 = arr[n-1] * arr[n-2] * arr[n-3];
+    int max2 = arr[0] * arr[1] * arr[n-1];
+    
+    if(max1>max2) result= max1;
+    else result= max2;
+    
+    printf("%d", result);
+    return 0;
+}
