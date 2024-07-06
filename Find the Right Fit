@@ -1,0 +1,23 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int mouse[]=new int[n];
+        int hole[]=new int[n];
+        int maxtime=0;
+        for(int i=0;i<n;i++){ mouse[i]=sc.nextInt(); }
+        for(int i=0;i<n;i++){ hole[i]=sc.nextInt(); }
+        Arrays.sort(mouse);
+        Arrays.sort(hole);
+        for(int i=0;i<n;i++){
+            if(Math.abs(mouse[i]-hole[i])>=maxtime){
+                maxtime=Math.abs(mouse[i]-hole[i]);
+            }
+        }
+     System.out.println(maxtime);
+    }
+}
