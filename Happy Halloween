@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    public static void main(String args[] ) throws Exception {   
+    Scanner sc=new Scanner(System.in);
+    int a=sc.nextInt();
+    int a1[]=new int[a];
+    Set<Integer> setA = new HashSet<>();
+    for(int i=0;i<a;i++){
+        a1[i]=sc.nextInt();
+        setA.add(a1[i]);
+    }
+    int c=sc.nextInt();
+    int c1[]=new int[c];
+    for(int i=0;i<c;i++){
+        c1[i]=sc.nextInt();
+    }
+    for(int i=0;i<c;i++){
+        if(setA.contains(c1[i])){
+            System.out.println("Happy Halloween!");
+        }
+        else{
+            System.out.println("Tricky!");
+        }
+    }
+    }
+}
