@@ -1,0 +1,21 @@
+import java.util.*;
+public class Solution {
+    public static long maxSubarraySum(int[] arr, int n) {
+        if (n == 0) {
+            return 0;
+        }
+       long max_curr=0;
+		   long max_sum=0;
+		   for(int num:arr){
+			    max_curr=Math.max(num,max_curr+num);
+			    max_sum=Math.max(max_sum,max_curr);
+		  }
+	    return Math.max(0,max_sum);
+}
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 7, -4, 3, 2, -10, 9, 1};
+        int n = arr.length;
+        System.out.println(maxSubarraySum(arr, n)); // Expected output: 11
+    }
+}
