@@ -1,0 +1,31 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        for(int i=0;i<t;i++){
+            int n=sc.nextInt();
+            int arrival[]=new int[n];
+            int depature[]=new int[n];
+            for(int a=0;a<n;a++){
+                arrival[a]=sc.nextInt();
+            } 
+            for(int b=0;b<n;b++){
+                depature[b]=sc.nextInt();
+            } 
+            Arrays.sort(arrival);
+            Arrays.sort(depature);
+            int j=0,count=0;
+            for(int c=0;c<n;c++){
+                if(arrival[c]<depature[j]) count++;
+                else j++;
+            }
+            System.out.println(count);
+        }
+	}
+}
