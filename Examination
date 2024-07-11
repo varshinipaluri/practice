@@ -1,0 +1,45 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        for(int y=0;y<t;y++){
+            int Dragon[]=new int[3];
+            int Sloth[]=new int[3];
+            int d_total=0,s_total=0;
+            int max1=0,max2=0;
+            for(int a=0;a<3;a++){
+                Dragon[a]=sc.nextInt();
+                d_total+=Dragon[a];
+            }
+            for(int b=0;b<3;b++){
+                Sloth[b]=sc.nextInt();
+                s_total+=Sloth[b];
+            }
+            if(d_total>s_total){
+                System.out.println("DRAGON");
+            }
+            else if(d_total<s_total){
+                System.out.println("SLOTH");
+            }
+            else{
+                if(Dragon[0]>Sloth[0] || (Dragon[0]==Sloth[0] && (Dragon[1]>Sloth[1] || (Dragon[1]==Sloth[1] && Dragon[2]>Sloth[2] )))){
+                        System.out.println("DRAGON");
+                }
+                else if(Dragon[0]<Sloth[0] || (Dragon[0]==Sloth[0] && (Dragon[1]<Sloth[1] || (Dragon[1]==Sloth[1] && Dragon[2]<Sloth[2] )))){
+                        System.out.println("SLOTH");
+                    }
+                else{
+                        System.out.println("TIE");
+                }
+            }
+            
+        }
+
+	}
+}
