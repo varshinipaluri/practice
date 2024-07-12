@@ -1,0 +1,33 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Sample
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		for(int a=0;a<t;a++){
+		    int n=sc.nextInt();
+		    int arr[]=new int[2*n];
+		    for(int b=0;b<2*n;b++){
+		        arr[b]=sc.nextInt();
+		    }
+		    Map<Integer,Integer> prices=new HashMap<>();
+		    for(int num:arr){
+		        prices.put(num,prices.getOrDefault(num, 0)+1);
+		    }
+		    boolean valid=true;
+		    for(int count: prices.values()){
+		        if(count>2){
+		            valid=false;
+		            break;
+		        }
+		    }
+		    if(valid) System.out.println("YES");
+		    else System.out.println("NO");
+		}
+
+	}
+}
