@@ -1,0 +1,21 @@
+import java.util.*;
+class Sample {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine().trim();
+        String words[]=str.split("\\s+");
+        for(String word:words){
+             if(startwithvowel(word) && endwithvowel(word)){
+                 System.out.print(word+" ");
+             }
+        }
+    }
+     private static boolean startwithvowel(String word){
+        char c=Character.toLowerCase(word.charAt(0));
+        return c=='a'||c=='e'||c=='i'||c=='o'||c=='u';
+    }
+    private static boolean endwithvowel(String word){
+        char c=Character.toLowerCase(word.charAt(word.length()-1));
+        return c=='a'||c=='e'||c=='i'||c=='o'||c=='u';
+    }
+}
