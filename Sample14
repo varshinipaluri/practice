@@ -1,0 +1,32 @@
+//Input1:3521 Input2:2452 Input3:1352 Output:19
+import java.util.*;
+class HelloWorld {
+    public static int smallestdigit(int a){
+        int s=9;
+        while(a>0){
+            int r=a%10;
+            if(r<s){ s=r; }
+            a=a/10;
+        }
+        return s;
+    }
+    public static int largestdigit(int a){
+        int l=0;
+        while(a>0){
+            int r=a%10;
+            if(r>l){ l=r; }
+            a=a/10;
+        }
+        return l;
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int n2=sc.nextInt();
+        int n3=sc.nextInt();
+        int a=largestdigit(n1)+largestdigit(n2)+largestdigit(n3);
+        int b=smallestdigit(n1)+smallestdigit(n2)+smallestdigit(n3);
+        int res=a+b;
+        System.out.println(res);
+    }
+}
