@@ -1,0 +1,26 @@
+// Input1:fruits Input2:are good Output:utsroigfedo
+// Explanation: concatenate both the strings, remove duplicate alphabets and white spaces, arrange the alphabets in descending order.
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String s1=sc.nextLine();
+        s1.replace(" ","");
+        String s2=sc.nextLine();
+         s2.replace(" ","");
+       s1+=s2;
+      Set<Character> set=new HashSet<>();
+      for(char c:s1.toCharArray()){
+          set.add(c);
+      }
+   List<Character> list = new ArrayList<Character>(set); 
+        Collections.sort(list); 
+        Collections.reverse(list);
+         char[] a=new char[list.size()];
+        for(int i=0;i<list.size();i++){
+            a[i]=list.get(i);
+        }
+      s1=String.valueOf(a);
+       System.out.println(s1);
+    }
+}
