@@ -1,0 +1,38 @@
+//Input1:3521 Input2:2452 Input3:1352 Input4:38 Output:1 
+import java.util.*;
+public class PinFinder {
+    private static int sumOfDigits(int number, boolean evenIndex) {
+        String numStr = Integer.toString(number);
+        int sum = 0;
+        
+        for (int i = 0; i < numStr.length(); i++) {
+            char digitChar = numStr.charAt(i);
+            int digit = Character.getNumericValue(digitChar);
+            if (evenIndex && i % 2 == 0) {
+                sum += digit;
+            } else if (!evenIndex && i % 2 != 0) {
+                sum += digit;
+            }
+        }
+        
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int input1 = sc.nextInt();
+        int input2 = sc.nextInt();
+        int input3 = sc.nextInt();
+        int input4 = sc.nextInt();
+        int sumEvenIndices = sumOfDigits(input1, true) + sumOfDigits(input2, true) + sumOfDigits(input3, true);
+        int sumOddIndices = sumOfDigits(input1, false) + sumOfDigits(input2, false) + sumOfDigits(input3, false);
+        
+        int result;
+        if (input4 % 2 == 0) {
+            result = sumEvenIndices - sumOddIndices;
+        } else {
+            result = sumOddIndices - sumEvenIndices;
+        }
+        System.out.println(result); // Expected Output: 1
+    }
+}
