@@ -1,0 +1,40 @@
+import java.util.*;
+class HelloWorld {
+    public static boolean isPrime(int r)
+        {
+            boolean valid=true;
+            if(r<2)
+            {
+                valid=false;
+            }
+            for(int i=2;i<=r/2;i++)
+            {
+                if(r%i==0)
+                {
+                    valid=false;
+                }
+                
+            }
+            return valid;
+        }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] ar=new int[n];
+        int sum=0;
+        List<Integer>li=new ArrayList<>();
+        for(int i=0;i<n;i++)
+        {
+            ar[i]=sc.nextInt();
+            if(!isPrime(i))
+            {
+                li.add(ar[i]);
+            }
+        }
+        for(int i=0;i<li.size();i++)
+         {
+           sum+=li.get(i);
+         }  
+       System.out.println(sum);
+    }
+}
