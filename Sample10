@@ -1,0 +1,16 @@
+import java.util.*;
+class Sample10{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        String str=Integer.toString(n);
+        String str1[]=str.split("0");
+        String res="";
+        for(String s:str1){
+            int l=s.length();
+            char c=(char)('A'+(l-1));
+            res+=c;
+        }
+        System.out.println(res);
+    }
+}
