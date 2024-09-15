@@ -1,0 +1,30 @@
+class Solution {
+    public List<Integer> commonElements(List<Integer> arr1, List<Integer> arr2,
+                                        List<Integer> arr3) {
+        List<Integer> res = new ArrayList<>();
+        Set<Integer> uniqueElements = new HashSet<>();
+        int i = 0, j = 0, k = 0;
+        
+        while (i < arr1.size() && j < arr2.size() && k < arr3.size()) {
+            if (arr1.get(i).equals(arr2.get(j)) && arr2.get(j).equals(arr3.get(k))) {
+                uniqueElements.add(arr1.get(i));
+                i++;
+                j++;
+                k++;
+            } else if (arr1.get(i).compareTo(arr2.get(j)) < 0) {
+                i++;
+            } else if (arr2.get(j).compareTo(arr3.get(k)) < 0) {
+                j++;
+            } else {
+                k++;
+            }
+        }
+        
+        res.addAll(uniqueElements);
+        if (res.isEmpty()) {
+            res.add(-1);
+        }
+        
+        return res;
+    }
+}
