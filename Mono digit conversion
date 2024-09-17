@@ -1,0 +1,56 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class MonoDigitConversion {
+
+    public static void main(String[] args) {
+        String input = "a1b2c3d4e5";
+        int conversionType = 1;
+
+        String result = convertMonoDigit(input, conversionType);
+        System.out.println("Converted String: " + result);
+    }
+
+    public static String convertMonoDigit(String input, int type) {
+        StringBuilder result = new StringBuilder();
+
+        Map<Character, Character> digitMap = new HashMap<>();
+        digitMap.put('0', '9'); digitMap.put('1', '8'); digitMap.put('2', '7');
+        digitMap.put('3', '6'); digitMap.put('4', '5'); digitMap.put('5', '4');
+        digitMap.put('6', '3'); digitMap.put('7', '2'); digitMap.put('8', '1');
+        digitMap.put('9', '0');
+
+        for (char ch : input.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                switch (type) {
+                    case 1:
+                        result.append('5');
+                        break;
+                    case 2:
+                        result.append((ch - '0') % 2 == 0 ? '0' : '1');
+                        break;
+                    case 3:
+                        int newDigit = (ch - '0') * 2;
+                        result.append(newDigit > 9 ? newDigit % 10 : newDigit);
+                        break;
+                    case 4:
+                        result.append(digitMap.get(ch));
+                        break;
+                    case 5:
+                        result.append((ch - '0') % 3);
+                        break;
+                    case 6:
+                        result.append(Math.abs((ch - '0') - 5));
+                        break;
+                    default:
+                        result.append(ch);
+                        break;
+                }
+            } else {
+                result.append(ch);
+            }
+        }
+
+        return result.toString();
+    }
+}
